@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "site": "Nenni & Associates — Building Efficiency Podcast",
+  "updates": [
+    {
+      "date": "2026-05-21",
+      "kind": "system",
+      "title": "Status page launched",
+      "body": "First version of the Nenni & Associates status page is live. Every update to the Building Efficiency Podcast site — new episodes, audio re-edits, page changes, brand updates — will be logged here going forward."
+    },
+    {
+      "date": "2026-05-21",
+      "kind": "episode-update",
+      "title": "Ep 144 (Charlie Zitnik) — retitled and re-edited",
+      "body": "Episode title finalized as \"Why Energy Projects Stall — and How to Fix It.\" Audio replaced with the Descript magic-edit clean pass (32:36 → 31:37); chapter timestamps re-anchored to the cleaned edit, and show notes timestamps updated to match. Vertical thumbnail regenerated with the new headline. Steve Goehl's name corrected throughout (transcripts had it as \"Gale\")."
+    }
+  ]
+}

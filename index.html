@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Status &middot; Nenni &amp; Associates</title>
+  <meta name="description" content="Site updates and episode releases for the Building Efficiency Podcast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2a3a;
+      --navy-deep: #131e2a;
+      --ink: #1a1c21;
+      --steel: #5b8db8;
+      --steel-dark: #3d6f9a;
+      --line: #d8dde3;
+      --bg: #f7f8fa;
+      --muted: #6c7480;
+      --display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+      --body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+    }
+    .eyebrow {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel-dark);
+      margin: 0 0 14px;
+    }
+    h1.title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+    p.lede {
+      margin: 0;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+    p.lede a { color: var(--steel-dark); text-decoration: underline; text-underline-offset: 2px; }
+    p.lede a:hover { color: var(--navy); }
+
+    .status-feed { list-style: none; padding: 0; margin: 0; }
+    .status-feed li {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .status-feed li:last-child { border-bottom: 0; }
+    .row-top {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .date {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .kind {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 2px;
+      background: var(--navy);
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .kind.episode-launch { background: var(--steel-dark); }
+    .kind.episode-update { background: var(--steel); }
+    .kind.page-update { background: var(--muted); }
+    .kind.system { background: var(--navy-deep); }
+
+    .entry-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin: 0 0 8px;
+      letter-spacing: -0.005em;
+    }
+    .entry-body {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .empty, .error {
+      padding: 40px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .error { color: #b85b5b; font-style: normal; }
+
+    footer.foot {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer.foot a { color: var(--steel-dark); text-decoration: none; }
+    footer.foot a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 36px 18px 56px; }
+      h1.title { font-size: 30px; }
+      .entry-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="site">
+      <p class="eyebrow">Nenni &amp; Associates</p>
+      <h1 class="title">Site Status &amp; Update Log</h1>
+      <p class="lede">A running record of every change made to the <a href="https://www.nenniandassoc.com" target="_blank" rel="noopener">Nenni &amp; Associates</a> website and the Building Efficiency Podcast &mdash; new episodes, audio re-edits, page updates, and brand changes.</p>
+    </header>
+
+    <ul class="status-feed" id="feed">
+      <li class="empty">Loading updates&hellip;</li>
+    </ul>
+
+    <footer class="foot">
+      <p>Data source: <a href="/updates.json">updates.json</a>. Last refresh: <span id="ts">&mdash;</span>.</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var feed = document.getElementById('feed');
+      var ts = document.getElementById('ts');
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function formatDate(iso) {
+        try {
+          var d = new Date(iso + 'T12:00:00');
+          if (isNaN(d.getTime())) return iso;
+          return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        } catch (e) { return iso; }
+      }
+
+      function render(updates) {
+        if (!updates || !updates.length) {
+          feed.innerHTML = '<li class="empty">No updates yet.</li>';
+          return;
+        }
+        updates.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+        feed.innerHTML = updates.map(function (u) {
+          var kind = (u.kind || '').toLowerCase().replace(/[^a-z0-9-]/g, '-');
+          var kindLabel = (u.kind || '').replace(/-/g, ' ');
+          return '<li>'
+            + '<div class="row-top">'
+            +   '<span class="date">' + escapeHtml(formatDate(u.date || '')) + '</span>'
+            +   (kindLabel ? '<span class="kind ' + escapeHtml(kind) + '">' + escapeHtml(kindLabel) + '</span>' : '')
+            + '</div>'
+            + '<h2 class="entry-title">' + escapeHtml(u.title || '') + '</h2>'
+            + '<p class="entry-body">' + escapeHtml(u.body || '') + '</p>'
+          + '</li>';
+        }).join('');
+      }
+
+      fetch('updates.json', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          render(data.updates || []);
+          ts.textContent = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+        })
+        .catch(function (err) {
+          feed.innerHTML = '<li class="error">Couldn&rsquo;t load updates (' + escapeHtml(err.message) + ').</li>';
+        });
+    })();
+  </script>
+</body>
+</html>
