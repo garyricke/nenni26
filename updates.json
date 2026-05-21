@@ -1,18 +1,109 @@
 {
-  "version": 1,
+  "version": 2,
   "site": "Nenni & Associates — Building Efficiency Podcast",
-  "updates": [
+  "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
+  "entries": [
     {
       "date": "2026-05-21",
-      "kind": "system",
-      "title": "Status page launched",
-      "body": "First version of the Nenni & Associates status page is live. Every update to the Building Efficiency Podcast site — new episodes, audio re-edits, page changes, brand updates — will be logged here going forward."
+      "tags": ["today", "launch", "episode", "audio", "fix"],
+      "sections": [
+        {
+          "heading": "Status page — launched",
+          "bullets": [
+            "Stood up <a href=\"https://nenni26.netlify.app\">nenni26.netlify.app</a> as the public change log. Source is at <code>github.com/garyricke/nenni26</code>; Netlify auto-deploys on every push to <code>main</code>.",
+            "Built as a sibling directory <code>nenni26-status/</code> with four files: <code>updates.json</code> (source of truth), <code>index.html</code> (the page you're reading), <code>embed.js</code> (Squarespace embed), and <code>netlify.toml</code> (no-build config + CORS headers).",
+            "Squarespace install is a one-time snippet: <code>&lt;div id=\"nenni-status\"&gt;&lt;/div&gt;&lt;script src=\"https://nenni26.netlify.app/embed.js\"&gt;&lt;/script&gt;</code>. The embed script auto-discovers its own data URL from <code>script.src</code> origin — no manual config.",
+            "<code>updates.json</code> is served with <code>Access-Control-Allow-Origin: *</code> and a 60-second cache, so new pushes propagate to Squarespace within ~1 minute."
+          ]
+        },
+        {
+          "heading": "Ep 144 (Charlie Zitnik) — title & audio refresh",
+          "bullets": [
+            "Episode title finalized as <strong>\"Why Energy Projects Stall — and How to Fix It.\"</strong> Hero <code>h1</code> kept punchy as <em>\"Why energy projects stall.\"</em> to preserve the two-line / bold-word visual rhythm; full title used in the audio-player title and on the social thumbnail.",
+            "Audio replaced with the Descript magic-edit clean pass: <strong>32:36 → 31:37</strong>, ~59 seconds shorter via non-uniform trims spread throughout the timeline. Updated <code>&lt;audio src&gt;</code> to the new Squarespace CDN URL and refreshed the hardcoded <code>#bep-audio-total</code> and <code>#bep-audio-left</code> placeholders.",
+            "All <strong>14 chapter timestamps re-anchored individually</strong> from the Descript-exported transcript. Could not use a constant offset since the magic-edit trims are non-uniform — every chapter shifted by a different amount (e.g. <code>t: 480 → 489</code> but <code>t: 720 → 684</code>).",
+            "Show notes timestamps re-computed and rounded <strong>down</strong> to the nearest <code>:00</code> / <code>:30</code> so click-throughs land just before each topic transition (never mid-sentence after). Locked this convention into project memory.",
+            "Vertical 9:16 social thumbnail regenerated via <code>nano-banana</code> with the new <em>\"Why Energy Projects Stall\"</em> headline and <em>\"— and how to fix it · with Charlie Zitnik, D.A. Davidson\"</em> subhead. Same three-band layout as ep143."
+          ]
+        },
+        {
+          "heading": "Steve Goehl — spelling correction",
+          "bullets": [
+            "Charlie's partner is <strong>Steve Goehl</strong> (pronounced \"Gale\"). Descript transcribed it phonetically as \"Gale\" — fixed all 4 instances in <code>ep144-zitnik.html</code>: timeline summary, timeline body, the \"what gets you out of bed\" Signature Four card, and the bio modal paragraph.",
+            "Added a general guardrail to project memory: when a guest references a colleague or partner by name, verify spelling with Gary before treating the transcript as ground truth."
+          ]
+        },
+        {
+          "heading": "Short description & show notes — rewritten",
+          "bullets": [
+            "Short description (<code>itunes:summary</code>) rewritten to lead with the new title: <em>\"Why energy projects stall — and how to fix it.\"</em> followed by the round-table / day-one closer. First sentence stands alone, so the hook survives the ~270-char preview truncation most apps apply.",
+            "Full show notes \"In This Episode\" timestamps updated to the cleaned audio: 04:00 → 05:30 → 08:00 → 10:00 → 11:00 → 14:00 → 18:00 → 21:30 → 25:00 → 27:00 → 29:30. Housekeeping chapters (welcome, legal disclaimer, career intro) intentionally omitted from the bullet list — only topical meat gets a timestamp."
+          ]
+        }
+      ]
     },
     {
-      "date": "2026-05-21",
-      "kind": "episode-update",
-      "title": "Ep 144 (Charlie Zitnik) — retitled and re-edited",
-      "body": "Episode title finalized as \"Why Energy Projects Stall — and How to Fix It.\" Audio replaced with the Descript magic-edit clean pass (32:36 → 31:37); chapter timestamps re-anchored to the cleaned edit, and show notes timestamps updated to match. Vertical thumbnail regenerated with the new headline. Steve Goehl's name corrected throughout (transcripts had it as \"Gale\")."
+      "date": "2026-05-15",
+      "tags": ["episode", "content"],
+      "sections": [
+        {
+          "heading": "Ep 144 (Zitnik) — source materials ingested",
+          "bullets": [
+            "Full Descript transcript (<code>Charlie-Zitnik-D-A-Davidson-full-transcript.md</code>) and source MP3 (<code>Charlie-Zitnik-D-A-Davidson-may-7-2026-full-descript.mp3</code>) saved under <code>episodes/Charlie-Zitnik-D-A-Davidson-may-7-2026/</code>.",
+            "Established the per-episode source-asset folder convention: raw materials (transcripts, source audio, headshot, reference docs) live under <code>episodes/{episode-folder}/</code>; the landing-page HTML stays at the project root as <code>ep{NNN}-{lastname}.html</code>.",
+            "First-pass social thumbnail (<code>charlie-zitnik-thumb.jpeg</code>) generated for layout testing — would be superseded by the published version on 2026-05-21."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "tags": ["design", "episode"],
+      "sections": [
+        {
+          "heading": "Ep 143 — social thumbnail finalized",
+          "bullets": [
+            "9:16 vertical social thumbnail generated for Episode 143 (David Karlsgodt / Brailsford &amp; Dunleavy) via <code>nano-banana</code>.",
+            "Established the three-band layout convention for all future BEP thumbnails: top wordmark + episode pill on navy; middle portrait floated on navy gradient with faint architectural-elevation texture; bottom near-black panel with wedge-serif headline + sans subhead + hairline rule + tiny \"Hosted by Jim Schafer · Nenni &amp; Associates\" credit.",
+            "Palette locked in: navy <code>#1a2a3a</code>, steel-blue <code>#5b8db8</code>, off-white headline <code>#f7f8fa</code>, near-black type panel <code>#1a1c21</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "tags": ["launch", "episode", "design"],
+      "sections": [
+        {
+          "heading": "Ep 143 (David Karlsgodt) — first per-episode landing page",
+          "bullets": [
+            "Built <code>ep143-karlsgodt.html</code> as the first instance of the deep-dive per-episode pattern, distinct from the all-episodes archive. Squarespace code-block embed (no <code>&lt;html&gt;/&lt;head&gt;/&lt;body&gt;</code>); every CSS rule scoped to <code>#bep-ep143</code> to avoid Squarespace theme collisions.",
+            "Custom HTML5 audio player (not Squarespace's <code>.sqs-audio-embed</code> — too restrictive): animated 4-bar equalizer that dances on play, 64px steel-blue play button, ±15s skip buttons, scrubbable track with chapter tick-marks, elapsed/remaining time, 1× → 2× speed toggle, collapsible chapter list below.",
+            "Standard section order locked in: hero (dark gradient + Cloudinary headshot card) → custom audio player → stats strip → career timeline → pull quote → video clip 1 → tabs section → pull quote 2 → accordion FAQ → video clip 2 → Signature Four reveal cards → concept-primer modals.",
+            "Google Fonts Raleway (display caps) + Source Sans 3 (body) loaded via <code>@import</code> at top of the scoped <code>&lt;style&gt;</code> block. Defensive <code>#bep-ep143 h1,h2,h3 { color: inherit; }</code> rule to defeat Squarespace heading-color overrides; explicit <code>color: #fff</code> on dark-section headings."
+          ]
+        },
+        {
+          "heading": "HTML encoding — three-contexts rule established",
+          "bullets": [
+            "Codified a rule for non-ASCII characters inside Squarespace code-block embeds: <strong>HTML entities in body</strong> (<code>&amp;mdash;</code>, <code>&amp;middot;</code>), <strong><code>\\uXXXX</code> in JS string literals</strong> (<code>'\\u2014'</code>), <strong><code>\\HHHH</code> in CSS pseudo-content</strong> (<code>content: '\\2192'</code>).",
+            "Affects em dash, middle dot, right arrow, ×, −, ▾, é, smart quotes — never blanket-replace; the escape required depends on which context the character sits in."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-22",
+      "tags": ["brand"],
+      "sections": [
+        {
+          "heading": "Brand guide — standalone reference doc",
+          "bullets": [
+            "Built <code>brand-guide.html</code> as a self-contained reference for the Nenni &amp; Associates brand identity used across the Building Efficiency Podcast site.",
+            "Captured the canonical palette, type pairing (Raleway caps + Source Sans 3 body + wedge serif for editorial headlines), Cloudinary asset-naming conventions, and the WSS / BEP / BPAI prefix scheme on the shared <code>dsbllwpbh</code> cloud account."
+          ]
+        }
+      ]
     }
   ]
 }
