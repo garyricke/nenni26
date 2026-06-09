@@ -279,18 +279,11 @@
       var log = document.getElementById('log');
       var ts = document.getElementById('ts');
 
-      function formatMonth(iso) {
-        try {
-          var d = new Date(iso + 'T12:00:00');
-          if (isNaN(d.getTime())) return '';
-          return d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-        } catch (e) { return ''; }
-      }
-      function formatDay(iso) {
+      function formatDate(iso) {
         try {
           var d = new Date(iso + 'T12:00:00');
           if (isNaN(d.getTime())) return iso;
-          return d.toLocaleDateString('en-US', { day: 'numeric', year: 'numeric' });
+          return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
         } catch (e) { return iso; }
       }
 
@@ -320,8 +313,7 @@
 
         return '<article class="entry' + (isLatest ? ' is-latest' : '') + '">'
           + '<aside class="date-rail">'
-          +   '<div class="month">' + escapeHtml(formatMonth(entry.date)) + '</div>'
-          +   '<div class="day">' + escapeHtml(formatDay(entry.date)) + '</div>'
+          +   '<div class="day">' + escapeHtml(formatDate(entry.date)) + '</div>'
           + '</aside>'
           + '<div class="card">'
           +   (tagsHtml ? '<div class="tags">' + tagsHtml + '</div>' : '')

@@ -16,6 +16,15 @@
           ]
         },
         {
+          "heading": "Ep 145 audio — settling the source after a lisp & an echo",
+          "bullets": [
+            "<strong>6 June:</strong> Jim flagged that Trevor's voice sounded like a lisp after editing. Diagnosed it as Trevor's recording environment on a three-speaker session — exaggerated by processing, not introduced by it. Sent Jim three A/B versions to choose from: Riverside raw, Riverside with studio sound, and the Descript studio-sound pass.",
+            "<strong>8 June:</strong> Jim preferred the Riverside studio-sound version and asked to also strip filler words, pointing to the Riverside <em>\"magic episode\"</em> export. Posted a pass using the Riverside-cleaned audio with filler-word and word-gap removal (harsh cuts avoided), studio sound left off.",
+            "That pass came back with an echo. Traced it to <strong>source confusion on Riverside</strong>: Jim's <em>magic episode</em> export was 55 min, but the source pulled for editing was 58 min and carried the echo — the echo lived in the Riverside source, not in anything done in Descript. Re-pulled the correct source, re-cut all chapters, and shipped the <strong>53:39</strong> cut now live.",
+            "<strong>Open item:</strong> standardize which Riverside export we pull from so versions stop drifting — the 55-vs-58-minute mismatch is the root of this round-trip."
+          ]
+        },
+        {
           "heading": "Audio player — loading deadlock fixed",
           "bullets": [
             "The player could get stuck on the loading spinner until a manual page reload. <strong>Root cause:</strong> the <code>.loading</code> state disabled the play button (<code>pointer-events: none</code>), but Squarespace defers <code>preload=\"metadata\"</code> until the user interacts — so the audio waited for a click that was itself blocked because the audio hadn't loaded. A true deadlock.",
@@ -27,6 +36,34 @@
           "bullets": [
             "A single em-dash (<code>—</code>) left in a JavaScript <em>comment</em> threw <code>Uncaught SyntaxError: Unexpected token '&lt;'</code> in the Squarespace-rendered page and silently killed <strong>all</strong> the player JavaScript — which masqueraded as an unrelated \"audio won't load\" bug.",
             "Rule going forward: keep the entire <code>&lt;script&gt;</code> block <strong>pure ASCII, even in comments</strong> — Squarespace mangles multi-byte bytes in embedded scripts. Verify with a grep for code-points &gt; 127 plus <code>node --check</code> on the extracted JS before handoff. Extends the existing three-contexts encoding rule."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "tags": ["episode", "content"],
+      "sections": [
+        {
+          "heading": "Ep 145 — first review cut posted",
+          "bullets": [
+            "Posted the first full cut of Episode 145 to the <a href=\"https://www.buildingefficiencypodcast.com/podcast-review\">podcast-review</a> page for Jim's sign-off.",
+            "Embedded all three breakout video clips exported from Riverside — Jim had pre-selected them, with <em>\"Private equity's impact on energy industry\"</em> as the lead clip.",
+            "Flagged a process snag: Jim's in-Riverside comment notes had disappeared from the project by the time they were opened, so those specific edit notes couldn't be actioned on this pass."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "tags": ["episode", "content"],
+      "sections": [
+        {
+          "heading": "Ep 145 — production brief from Jim",
+          "bullets": [
+            "Title locked: <strong>\"How Private Equity Is Reshaping the Energy Sector's Talent Landscape.\"</strong>",
+            "Two-guest episode confirmed — <strong>Ryan McGushin</strong> and <strong>Trevor Morrison</strong>; LinkedIn profiles supplied for headshots and links.",
+            "Lead breakout video set to <em>\"Private equity's impact on energy industry\"</em>; target was to publish the following week."
           ]
         }
       ]

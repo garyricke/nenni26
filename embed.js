@@ -71,8 +71,7 @@
 
     return '<article class="nenni-st-entry' + (isLatest ? ' is-latest' : '') + '">'
       + '<aside class="nenni-st-rail">'
-      +   '<div class="nenni-st-mo">' + escapeHtml(formatMonth(entry.date)) + '</div>'
-      +   '<div class="nenni-st-dy">' + escapeHtml(formatDay(entry.date)) + '</div>'
+      +   '<div class="nenni-st-dy">' + escapeHtml(formatDate(entry.date)) + '</div>'
       + '</aside>'
       + '<div class="nenni-st-card">'
       +   (tagsHtml ? '<div class="nenni-st-tags">' + tagsHtml + '</div>' : '')
@@ -84,18 +83,11 @@
   function tagSlug(t) { return String(t).toLowerCase().replace(/[^a-z0-9-]/g, '-'); }
   function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
   function escapeAttr(s) { return escapeHtml(s); }
-  function formatMonth(iso) {
-    try {
-      var d = new Date(iso + 'T12:00:00');
-      if (isNaN(d.getTime())) return '';
-      return d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-    } catch (e) { return ''; }
-  }
-  function formatDay(iso) {
+  function formatDate(iso) {
     try {
       var d = new Date(iso + 'T12:00:00');
       if (isNaN(d.getTime())) return iso;
-      return d.toLocaleDateString('en-US', { day: 'numeric', year: 'numeric' });
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     } catch (e) { return iso; }
   }
 
