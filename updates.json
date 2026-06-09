@@ -4,8 +4,36 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
+      "date": "2026-06-08",
+      "tags": ["today", "episode", "audio", "fix"],
+      "sections": [
+        {
+          "heading": "Ep 145 (McGushin & Morrison) — audio swap, chapters & skip icons",
+          "bullets": [
+            "Audio replaced with the client's Riverside <em>Magic</em> export (filler/silence trimmed throughout): <strong>55:00 → 53:39</strong>. Updated <code>&lt;audio src&gt;</code> to the new Squarespace CDN URL and refreshed the <code>#bep-audio-total</code>, <code>#bep-audio-left</code> and runtime-stat placeholders.",
+            "All <strong>15 chapter timestamps re-anchored individually</strong> from the new transcript timecodes — a constant offset would have been wrong because the trims are non-uniform: one chapter actually shifted <em>later</em> (<code>22:34 → 22:51</code>) even though the episode got shorter overall.",
+            "Fixed the <strong>±15s skip-button icons</strong>, which were rendering upside-down — swapped to clean circular glyphs (rewind curls left, forward curls right) with the \"15\" centered. The skip logic itself was already correct."
+          ]
+        },
+        {
+          "heading": "Audio player — loading deadlock fixed",
+          "bullets": [
+            "The player could get stuck on the loading spinner until a manual page reload. <strong>Root cause:</strong> the <code>.loading</code> state disabled the play button (<code>pointer-events: none</code>), but Squarespace defers <code>preload=\"metadata\"</code> until the user interacts — so the audio waited for a click that was itself blocked because the audio hadn't loaded. A true deadlock.",
+            "Play button now stays clickable while loading; the spinner clears on <em>any</em> readiness event (<code>loadedmetadata</code>, <code>loadeddata</code>, <code>canplay</code>, <code>durationchange</code>, <code>playing</code>) with a 2.5s hard safety net, and the chapter seek-markers wait for the real duration before positioning."
+          ]
+        },
+        {
+          "heading": "Embed gotcha — one non-ASCII char killed the whole script",
+          "bullets": [
+            "A single em-dash (<code>—</code>) left in a JavaScript <em>comment</em> threw <code>Uncaught SyntaxError: Unexpected token '&lt;'</code> in the Squarespace-rendered page and silently killed <strong>all</strong> the player JavaScript — which masqueraded as an unrelated \"audio won't load\" bug.",
+            "Rule going forward: keep the entire <code>&lt;script&gt;</code> block <strong>pure ASCII, even in comments</strong> — Squarespace mangles multi-byte bytes in embedded scripts. Verify with a grep for code-points &gt; 127 plus <code>node --check</code> on the extracted JS before handoff. Extends the existing three-contexts encoding rule."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-05-21",
-      "tags": ["today", "launch", "episode", "audio", "fix"],
+      "tags": ["launch", "episode", "audio", "fix"],
       "sections": [
         {
           "heading": "Status page — launched",
