@@ -65,6 +65,43 @@
     p.lede a { color: var(--steel-dark); text-decoration: underline; text-underline-offset: 2px; }
     p.lede a:hover { color: var(--navy); }
 
+    /* ---- Prominent process-doc call to action ---- */
+    .cta {
+      display: flex; align-items: center; gap: 20px;
+      margin: 0 0 48px; padding: 22px 26px;
+      border: 1px solid #2f4a63; border-radius: 10px;
+      background: linear-gradient(135deg, #1f2d3e 0%, #2a4d6d 62%, #3d6d96 100%);
+      color: #fff; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(26,42,58,0.20);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(26,42,58,0.30); }
+    .cta:focus-visible { outline: 3px solid var(--steel); outline-offset: 3px; }
+    .cta-ic {
+      flex: none; display: flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px; border-radius: 10px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+    }
+    .cta-ic svg { width: 26px; height: 26px; }
+    .cta-body { flex: 1 1 auto; min-width: 0; }
+    .cta-k {
+      display: block; font-family: var(--display); font-weight: 700; font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #9fc4e2; margin-bottom: 5px;
+    }
+    .cta-t {
+      display: block; font-family: var(--display); font-weight: 700;
+      font-size: 21px; line-height: 1.2; letter-spacing: -0.005em;
+    }
+    .cta-s { display: block; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72); margin-top: 6px; }
+    .cta-go {
+      flex: none; display: inline-flex; align-items: center; gap: 9px;
+      padding: 11px 18px; border-radius: 999px; background: #fff; color: #1f2d3e;
+      font-family: var(--display); font-weight: 700; font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .cta-go svg { width: 15px; height: 15px; transition: transform .16s ease; }
+    .cta:hover .cta-go svg { transform: translateX(3px); }
+
     .log { position: relative; }
     .log::before {
       content: '';
@@ -242,6 +279,9 @@
     @media (max-width: 760px) {
       .wrap { padding: 40px 20px 64px; }
       h1.title { font-size: 32px; }
+      .cta { flex-wrap: wrap; gap: 16px; padding: 20px; }
+      .cta-t { font-size: 18px; }
+      .cta-go { width: 100%; justify-content: center; }
       .log::before { display: none; }
       .entry { grid-template-columns: 1fr; gap: 14px; margin-bottom: 28px; }
       .date-rail {
@@ -263,8 +303,27 @@
       <p class="eyebrow">Change Log</p>
       <h1 class="title">Updates by Date</h1>
       <p class="lede">A running record of every change to the <a href="https://www.nenniandassoc.com" target="_blank" rel="noopener">Nenni &amp; Associates</a> website and the Building Efficiency Podcast &mdash; new episodes, audio re-edits, design changes, brand updates, and the technical decisions behind them.</p>
-      <p class="lede" style="margin-top:14px">Curious how an episode actually gets made? Read the <a href="episode-production-process.html">episode production process</a>.</p>
     </header>
+
+    <a class="cta" href="episode-production-process.html">
+      <span class="cta-ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </span>
+      <span class="cta-body">
+        <span class="cta-k">Reference Document</span>
+        <span class="cta-t">How an episode gets made</span>
+        <span class="cta-s">The full production process, start to finish &mdash; handoff, audio, install, and assets.</span>
+      </span>
+      <span class="cta-go">
+        <span>Read it</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+    </a>
 
     <div class="log" id="log">
       <p class="empty">Loading updates&hellip;</p>

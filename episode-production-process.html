@@ -226,6 +226,12 @@
     footer.foot a { color: var(--steel-dark); text-decoration: none; }
     footer.foot a:hover { text-decoration: underline; }
 
+    /* When opened inside the change-log modal, drop the page-level navigation:
+       the modal supplies its own chrome (title bar, close, open-in-new-tab). */
+    body.is-embedded .backlink,
+    body.is-embedded footer.foot { display: none; }
+    body.is-embedded .wrap { padding-top: 40px; }
+
     @media (max-width: 860px) {
       nav.toc ol { columns: 1; }
       .compare { grid-template-columns: 1fr; }
@@ -804,5 +810,15 @@
       </p>
     </footer>
   </main>
+
+  <script>
+    // Rendered inside the change-log modal (iframe), or standalone?
+    (function () {
+      var framed = false;
+      try { framed = window.self !== window.top; } catch (e) { framed = true; }
+      var flagged = /(^|[?&])embed=1(&|$)/.test(window.location.search);
+      if (framed || flagged) document.body.classList.add('is-embedded');
+    })();
+  </script>
 </body>
 </html>

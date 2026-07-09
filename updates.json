@@ -9,7 +9,8 @@
         "today",
         "episode",
         "content",
-        "fix"
+        "fix",
+        "design"
       ],
       "sections": [
         {
@@ -54,6 +55,15 @@
             "Episode artwork now lives <strong>in the episode folder</strong> rather than <code>generated_imgs/</code>, as a PNG master plus an <strong>optimized 1080&times;1920 JPEG (~150 KB)</strong> for uploading to Squarespace. An episode is now a single self-contained directory.",
             "Fact-check: Abby&rsquo;s on-air &ldquo;ranked number two nationally&rdquo; in K-12 was accurate for the 2023 and 2024 BD+C Giants 400 but is <strong>#3</strong> in 2025 &mdash; the page says &ldquo;top three.&rdquo; The &ldquo;Public Military Installation Fund&rdquo; is formally the <strong>Public Schools on Military Installations (PSMI)</strong> program. &ldquo;Forestall&rdquo; is <strong>Forrestal</strong> Elementary; &ldquo;Louk&rdquo; is <strong>Lauck</strong>.",
             "<strong>Open item:</strong> Jim&rsquo;s note lists one breakout video titled <em>&ldquo;The Hidden Value of Data&hellip;&rdquo;</em>, but the downloaded clip is Abby&rsquo;s CMTA overview from 2:47 &mdash; the &ldquo;hidden value of data&rdquo; material sits nearer 8:00. Worth confirming whether a second breakout export exists."
+          ]
+        },
+        {
+          "heading": "Process doc reachable from the embedded change log",
+          "bullets": [
+            "The change log lives inside a Squarespace page, so a plain link to the Netlify-hosted process document would either navigate the visitor away or (as a relative href) resolve against the Squarespace origin and 404. It now opens in an <strong>overlay backed by an <code>&lt;iframe&gt;</code></strong> &mdash; the visitor stays on the page, and the document&rsquo;s styles stay fully isolated from Squarespace&rsquo;s.",
+            "The entry point is now a <strong>full-width brand-gradient button</strong> at the top of the feed &mdash; icon, kicker, title, one-line description, and a pill-shaped &ldquo;Read it&rdquo; affordance &mdash; instead of a sentence-length text link. The process should always be one obvious click away.",
+            "Modal behaviour: closes on <code>Esc</code>, on backdrop click, and on the X; locks background scroll and restores it; moves focus to the close button on open and back to the trigger on close; loads the iframe lazily on first open and reuses it afterwards; and offers <em>Open in new tab</em> for anyone who wants the standalone page. Verified against a simulated cross-origin Squarespace host.",
+            "When the document detects it is framed (or sees <code>?embed=1</code>) it hides its own back-link and footer, since the modal supplies that chrome. The standalone page at <a href=\"episode-production-process.html\">nenni26.netlify.app/episode-production-process</a> is unchanged."
           ]
         }
       ]
