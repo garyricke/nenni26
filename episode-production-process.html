@@ -260,6 +260,7 @@
       </p>
       <p class="stamp">
         Last revised 9 July 2026 &middot; Reflects the process used for Episode 146 (Abby Lauck, CMTA)
+        &middot; Includes the Squarespace <code>&lt;section&gt;</code>-id gotcha found on the live ep146 page
       </p>
     </header>
 
@@ -718,6 +719,14 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No <code>&lt;section&gt;</code> carries an <code>id</code>, and nothing looks a section up by id.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            After pasting into Squarespace, load the <strong>published</strong> page once with a cold cache and confirm the player loads without a reload.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
             Every tab, accordion, reveal card, and modal opens and closes; Escape closes modals.
           </li>
           <li>
@@ -744,6 +753,15 @@
 
       <div class="prose">
         <p>Each of these cost us real time at least once. They are listed so they cost us that time only once.</p>
+      </div>
+
+      <div class="card">
+        <h3>Squarespace overwrites the <code>id</code> on every <code>&lt;section&gt;</code></h3>
+        <ul class="ticks">
+          <li>Squarespace stamps <code>section.id</code> on every <code>&lt;section&gt;</code> on the page with its own section id. For a section inside a code block it doesn't own, that value is undefined &mdash; so the id becomes the <strong>literal string <code>"null"</code></strong>. Ids on divs, buttons, spans and <code>&lt;audio&gt;</code> are left alone.</li>
+          <li>This broke the ep146 player: the lookup <code>querySelector('#bep-audio-root')</code> returned <code>null</code> whenever Squarespace's stamping beat our inline script, and the <code>loadedmetadata</code> handler threw on its first line. The spinner never cleared. <strong>Reloading appeared to fix it</strong> because a reload changes script ordering &mdash; which is what makes this so easy to misdiagnose as a caching or audio problem.</li>
+          <li><strong>Rule:</strong> never put an <code>id</code> on a <code>&lt;section&gt;</code> in an embed, and never look one up by id. Resolve sections by class. Put anchor ids on an inner <code>&lt;div&gt;</code>.</li>
+        </ul>
       </div>
 
       <div class="card">

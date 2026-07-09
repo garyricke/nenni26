@@ -13,6 +13,24 @@
       ],
       "sections": [
         {
+          "heading": "Root cause: Squarespace overwrites every <section> id",
+          "bullets": [
+            "<strong>Symptom:</strong> on the live ep146 page the &ldquo;Listen to the episode&rdquo; panel never left its loading spinner &mdash; the audio only appeared after a manual reload.",
+            "<strong>Root cause:</strong> Squarespace stamps <code>section.id</code> on <em>every</em> <code>&lt;section&gt;</code> on the page with its own section id. For sections it doesn&rsquo;t own that value is undefined, so the id becomes the literal string <code>\"null\"</code>. Confirmed live: 13 of 15 sections on the page, including two of Squarespace&rsquo;s own, carry <code>id=\"null\"</code>. Ids on non-<code>&lt;section&gt;</code> elements are untouched.",
+            "Our player did <code>root.querySelector('#bep-audio-root')</code> against a <code>&lt;section&gt;</code>. When Squarespace&rsquo;s stamping won the race against our inline script, that returned <code>null</code> and the first line of the <code>loadedmetadata</code> handler threw <code>TypeError: Cannot read properties of null</code> &mdash; so the spinner never cleared and the chapters never rendered. A reload reshuffles script order, which is exactly why reloading &ldquo;fixed&rdquo; it. Reproduced against the live DOM.",
+            "<strong>Fix:</strong> never look a <code>&lt;section&gt;</code> up by id. The player now resolves the panel with <code>root.querySelector('.bep-audio')</code>, and no <code>&lt;section&gt;</code> in any episode page carries an <code>id</code> at all (the <code>#journey</code> / <code>#path</code> anchors moved onto their inner <code>&lt;div&gt;</code>). Verified by simulating the exact clobbering before the embed script runs.",
+            "<strong>Applied to all four episode pages</strong> (143, 144, 145, 146) &mdash; every one had the same latent race. <strong>All four need re-pasting into Squarespace.</strong>"
+          ]
+        },
+        {
+          "heading": "While in there: ep143 & ep144 brought up to the current player",
+          "bullets": [
+            "ep143 and ep144 still carried the <strong>play-button deadlock</strong> (<code>pointer-events: none</code> while loading), the <strong>upside-down &plusmn;15s skip icons</strong>, and the old single-event readiness handler. All back-ported from ep145, so all four pages now run an identical player.",
+            "ep143 also had <strong>7 non-ASCII characters inside its <code>&lt;script&gt;</code> block</strong> (em dash, en dash, arrow, middot, multiplication sign) &mdash; precisely the failure mode that once killed all the player JS on a Squarespace-rendered page. Escaped to <code>\\uXXXX</code>; the chapter titles still render as real glyphs.",
+            "Every page now passes the same gate: zero non-ASCII in the script block, <code>node --check</code> clean, no <code>&lt;section&gt;</code> ids, and the player verified against a simulated Squarespace DOM."
+          ]
+        },
+        {
           "heading": "Ep 146 (Abby Lauck, CMTA) — deep-dive page, show notes & artwork",
           "bullets": [
             "New per-episode landing page <code>ep146-lauck.html</code> for <strong>Season 6, Episode 146</strong>. Hero hook <em>&ldquo;She was the client first&rdquo;</em>; Jim&rsquo;s full title &mdash; <em>The Hidden Value of Data and Authentic Conversations in Winning Healthcare Projects</em> &mdash; carries the audio-player title, the Squarespace audio block and the RSS feed.",
