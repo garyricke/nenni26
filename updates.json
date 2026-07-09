@@ -4,8 +4,49 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
+      "date": "2026-07-09",
+      "tags": [
+        "today",
+        "episode",
+        "content",
+        "fix"
+      ],
+      "sections": [
+        {
+          "heading": "Ep 146 (Abby Lauck, CMTA) — deep-dive page, show notes & artwork",
+          "bullets": [
+            "New per-episode landing page <code>ep146-lauck.html</code> for <strong>Season 6, Episode 146</strong>. Hero hook <em>&ldquo;She was the client first&rdquo;</em>; Jim&rsquo;s full title &mdash; <em>The Hidden Value of Data and Authentic Conversations in Winning Healthcare Projects</em> &mdash; carries the audio-player title, the Squarespace audio block and the RSS feed.",
+            "Verified the hosted MP3 is <strong>byte-identical</strong> to the local Descript export (31,586,533 bytes / 32:54) and that the transcript ends at 32:52 &mdash; so all <strong>22 chapter timestamps</strong> are anchored to the file actually being shipped.",
+            "Located the Riverside breakout clip inside the episode by <strong>audio cross-correlation</strong> rather than guessing: it begins at <code>2:47</code> and runs 46 seconds. Poster frame derived straight from the Cloudinary video with <code>so_24.0,f_jpg</code> &mdash; no second upload.",
+            "Headshot needed rescuing: one source was a circle composited on black (bled into every face crop), the other carried a CMTA logo fragment on its left edge that survived every <code>g_face</code> setting. Pre-cropped the source and re-uploaded."
+          ]
+        },
+        {
+          "heading": "Two ep144 bugs re-fixed — template from the newest page",
+          "bullets": [
+            "Ep 146 was built from the <strong>ep144</strong> template and silently inherited two defects already fixed in ep145: the play-button <strong>loading deadlock</strong> (<code>pointer-events: none</code> on <code>.loading</code>, so the click that would trigger loading could never land) and the <strong>upside-down &plusmn;15s skip icons</strong>.",
+            "Both back-ported, plus ep145&rsquo;s broader readiness handling (<code>loadedmetadata</code>, <code>loadeddata</code>, <code>canplay</code>, <code>durationchange</code>, <code>playing</code> + a 2.5s safety net). Verified in-browser that a click reaches the play button <em>while</em> the spinner is up.",
+            "<strong>Rule going forward:</strong> always duplicate the most recent episode page. Fixes do not travel backwards, and an old template quietly reintroduces solved bugs."
+          ]
+        },
+        {
+          "heading": "Process documented — and the fact-check that came with it",
+          "bullets": [
+            "Published a shareable reference page: <a href=\"episode-production-process.html\">How an episode gets made</a> &mdash; Jim&rsquo;s handoff, the Descript pass (studio sound off, filler words out, word gaps &gt; 0.75s, speakers labelled), the 5-second transcript export, the Squarespace install, asset naming, and a pre-publish checklist. It also settles <strong>title vs. hook</strong>: Jim&rsquo;s title wins every field called &ldquo;title&rdquo;; the hook lives only in the hero and on the thumbnail.",
+            "Episode artwork now lives <strong>in the episode folder</strong> rather than <code>generated_imgs/</code>, as a PNG master plus an <strong>optimized 1080&times;1920 JPEG (~150 KB)</strong> for uploading to Squarespace. An episode is now a single self-contained directory.",
+            "Fact-check: Abby&rsquo;s on-air &ldquo;ranked number two nationally&rdquo; in K-12 was accurate for the 2023 and 2024 BD+C Giants 400 but is <strong>#3</strong> in 2025 &mdash; the page says &ldquo;top three.&rdquo; The &ldquo;Public Military Installation Fund&rdquo; is formally the <strong>Public Schools on Military Installations (PSMI)</strong> program. &ldquo;Forestall&rdquo; is <strong>Forrestal</strong> Elementary; &ldquo;Louk&rdquo; is <strong>Lauck</strong>.",
+            "<strong>Open item:</strong> Jim&rsquo;s note lists one breakout video titled <em>&ldquo;The Hidden Value of Data&hellip;&rdquo;</em>, but the downloaded clip is Abby&rsquo;s CMTA overview from 2:47 &mdash; the &ldquo;hidden value of data&rdquo; material sits nearer 8:00. Worth confirming whether a second breakout export exists."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-06-08",
-      "tags": ["today", "episode", "audio", "fix"],
+      "tags": [
+        "episode",
+        "audio",
+        "fix"
+      ],
       "sections": [
         {
           "heading": "Ep 145 (McGushin & Morrison) — audio swap, chapters & skip icons",
@@ -42,7 +83,10 @@
     },
     {
       "date": "2026-06-05",
-      "tags": ["episode", "content"],
+      "tags": [
+        "episode",
+        "content"
+      ],
       "sections": [
         {
           "heading": "Ep 145 — first review cut posted",
@@ -56,7 +100,10 @@
     },
     {
       "date": "2026-05-29",
-      "tags": ["episode", "content"],
+      "tags": [
+        "episode",
+        "content"
+      ],
       "sections": [
         {
           "heading": "Ep 145 — production brief from Jim",
@@ -70,7 +117,12 @@
     },
     {
       "date": "2026-05-21",
-      "tags": ["launch", "episode", "audio", "fix"],
+      "tags": [
+        "launch",
+        "episode",
+        "audio",
+        "fix"
+      ],
       "sections": [
         {
           "heading": "Status page — launched",
@@ -109,7 +161,10 @@
     },
     {
       "date": "2026-05-15",
-      "tags": ["episode", "content"],
+      "tags": [
+        "episode",
+        "content"
+      ],
       "sections": [
         {
           "heading": "Ep 144 (Zitnik) — source materials ingested",
@@ -123,7 +178,10 @@
     },
     {
       "date": "2026-05-07",
-      "tags": ["design", "episode"],
+      "tags": [
+        "design",
+        "episode"
+      ],
       "sections": [
         {
           "heading": "Ep 143 — social thumbnail finalized",
@@ -137,7 +195,11 @@
     },
     {
       "date": "2026-05-06",
-      "tags": ["launch", "episode", "design"],
+      "tags": [
+        "launch",
+        "episode",
+        "design"
+      ],
       "sections": [
         {
           "heading": "Ep 143 (David Karlsgodt) — first per-episode landing page",
@@ -159,7 +221,9 @@
     },
     {
       "date": "2026-04-22",
-      "tags": ["brand"],
+      "tags": [
+        "brand"
+      ],
       "sections": [
         {
           "heading": "Brand guide — standalone reference doc",
