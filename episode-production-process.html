@@ -408,13 +408,13 @@
       <div class="card">
         <h3>The Descript pass, in order</h3>
         <ol class="numbered">
-          <li>Import the Riverside audio into Descript. Name the project with the <strong>guest's name</strong>.</li>
-          <li><strong>Studio Sound: off.</strong> It has been the source of artifacts &mdash; a lisp on one guest, an echo on another. Leave it off unless Jim specifically asks.</li>
+          <li>Import the <strong>raw per-speaker Riverside tracks</strong> (Jim + guest) into Descript as one multitrack sequence. Name the project with the <strong>guest's name</strong>. Raw tracks carry no processing at all, so the next step is not optional.</li>
+          <li><strong>Studio Sound: on, at 87%</strong>, on both tracks, plus a <strong>moderate compressor</strong> (gentle preset: roughly &minus;20&nbsp;dB threshold, 3:1) to raise and even out loudness. Applied per speaker track, this has not produced the lisp/echo artifacts that Riverside's own studio-sound export caused on ep145 &mdash; those came from the wrong <em>Riverside</em> export, not from Descript. Listen to the result before moving on.</li>
           <li><strong>Remove all filler words.</strong> Leave any harsh cuts it creates untouched at this stage.</li>
           <li><strong>Remove word gaps greater than 0.75 seconds</strong>, and edit those regions.</li>
           <li><strong>Spot-check the intro.</strong> Listen to the opening and hand-fix anything the automatic passes made choppy.</li>
           <li><strong>Spot-check the outro.</strong> Same treatment &mdash; the goodbye should not sound clipped.</li>
-          <li><strong>Set speakers to 2</strong> and label them explicitly: <code>Jim</code> and the guest's name. This is what makes the transcript usable downstream.</li>
+          <li><strong>Speaker labels:</strong> not needed in Descript. The multitrack import already identifies which track is Jim; the exported transcript is relabeled at the file level (Speaker &rarr; Jim, Speaker&nbsp;2 &rarr; guest).</li>
           <li>Export the audio into the episode folder as <code>{Guest-Name}-Riverside-Descript.mp3</code>.</li>
         </ol>
 
