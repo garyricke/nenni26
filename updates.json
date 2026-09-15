@@ -4,6 +4,33 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
+      "date": "2026-09-15",
+      "tags": [
+        "today",
+        "episode",
+        "content",
+        "automation"
+      ],
+      "sections": [
+        {
+          "heading": "Episode 147 &mdash; Ryan Baker, Ascendant Facility Partners (built end-to-end from the Riverside link)",
+          "bullets": [
+            "New per-episode page <code>ep147-baker.html</code>, templated from ep146 (the newest page). Hook: <em>&ldquo;The low-hanging fruit is gone.&rdquo;</em> Jim&rsquo;s title used verbatim everywhere a title appears: <em>Exploring the Future of Facility Management with Ryan Baker</em>.",
+            "Audio: both Riverside raw tracks pulled, imported to Descript as a two-track sequence, and cleaned by Agent Underlord (193 fillers removed, 100 gaps trimmed to 0.75 s, Studio Sound off) &mdash; 34:12 &rarr; 31:32. Exported as <code>Ryan-Baker-Riverside-Descript.mp3</code> plus a 5-second-timecoded transcript.",
+            "Assets on Cloudinary: headshot pulled from Ryan&rsquo;s Riverside video (wall logo removed), an 88-second breakout clip (&ldquo;the low-hanging fruit is gone&rdquo;) located in the raw video by audio cross-correlation, and the 9:16 thumbnail in the standard header layout.",
+            "Fact-checked against primary sources before writing: <strong>Marcum</strong> Engineering (transcript: &ldquo;Markham&rdquo;), <strong>Russ Litsinger</strong> (surname never spoken), and Ryan&rsquo;s title per Ascendant&rsquo;s site. All flagged in the show notes.",
+            "Speaker names are no longer set in Descript &mdash; track identity comes from the multitrack import, so that manual step is gone."
+          ]
+        },
+        {
+          "heading": "New: <code>/episode</code> skill",
+          "bullets": [
+            "The whole pipeline &mdash; Riverside pull &rarr; Descript cleanup &rarr; exports &rarr; fact-check &rarr; show notes &rarr; page &rarr; headshot/clip/thumbnail &rarr; this log &mdash; is now one command that takes a Riverside project URL and Jim&rsquo;s handoff email. Only three things still need a human: Jim&rsquo;s title, one approval for the Descript MP3 publish, and a look before it goes on Squarespace."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-07-09",
       "tags": [
         "today",
