@@ -4,6 +4,24 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
+      "date": "2026-09-16",
+      "tags": [
+        "today",
+        "episode",
+        "launch"
+      ],
+      "sections": [
+        {
+          "heading": "Episode 147 is live",
+          "bullets": [
+            "<strong>#147 Exploring the Future of Facility Management with Ryan Baker</strong> is published on the main feed and in the podcast RSS: <a href=\"https://www.buildingefficiencypodcast.com/podcast-episodes/147-exploring-the-future-of-facility-management-with-ryan-baker\">buildingefficiencypodcast.com/podcast-episodes/147-exploring-the-future-of-facility-management-with-ryan-baker</a>.",
+            "Review round: Ryan approved the episode, the hook, and the clip; asked for his LinkedIn photo in place of the Riverside frame. Headshot swapped and the 9:16 artwork regenerated from it; title kept as Ascendant&rsquo;s site lists it (&ldquo;either is fine&rdquo;).",
+            "Riverside link to live episode: one working day, with the review round in between. The Squarespace install (duplicate &rarr; move &rarr; code block &rarr; audio + Podcast panel &rarr; settings) is now part of the <code>/episode</code> skill too."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-15",
       "tags": [
         "today",
