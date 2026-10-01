@@ -4,6 +4,26 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
+      "date": "2026-10-01",
+      "tags": [
+        "today",
+        "episode",
+        "content",
+        "automation"
+      ],
+      "sections": [
+        {
+          "heading": "Episode 148 &mdash; Brodie Boland, Upgraid (built end-to-end from Jim&rsquo;s handoff)",
+          "bullets": [
+            "New per-episode page <code>ep148-boland.html</code>, templated from ep147 (the newest page). Hook: <em>&ldquo;More work than we can do.&rdquo;</em> Jim&rsquo;s title used verbatim everywhere a title appears: <em>Why AI Could Expand the ESCO Market, Not Just Speed It Up</em>.",
+            "Audio: both Riverside raw tracks pulled into a two-track Descript sequence. Jim&rsquo;s two requested cuts made first (the monitor dropout and restart, 2:08; the McKinsey/McKinstry slip, 0:09), then Agent Underlord removed 155 fillers and trimmed 95 gaps to 0.75 s, and Studio Sound 87% + a gentle compressor were applied. 33:37 &rarr; 29:06.",
+            "Fact-check caught the company spelling: it&rsquo;s <strong>Upgraid</strong> (the pun is on AI), not &ldquo;Upgrade&rdquo; as the intro and transcript render it. Also confirmed: McKinsey partner (DC), President of AIESEC International 2005&ndash;06, and the Orange Revolution timeline.",
+            "Assets on Cloudinary: headshot from Brodie&rsquo;s Riverside video, a 52-second breakout clip (&ldquo;growth, not zero-sum&rdquo;) located by audio cross-correlation and run through Descript, and the 9:16 thumbnail. Squarespace install pending."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-16",
       "tags": [
         "today",
