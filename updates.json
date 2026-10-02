@@ -25,6 +25,7 @@
     {
       "date": "2026-10-01",
       "tags": [
+        "today",
         "episode",
         "content",
         "automation"
@@ -44,6 +45,7 @@
     {
       "date": "2026-09-16",
       "tags": [
+        "today",
         "episode",
         "launch"
       ],
@@ -61,6 +63,7 @@
     {
       "date": "2026-09-15",
       "tags": [
+        "today",
         "episode",
         "content",
         "automation"
@@ -87,6 +90,7 @@
     {
       "date": "2026-07-09",
       "tags": [
+        "today",
         "episode",
         "content",
         "fix",
