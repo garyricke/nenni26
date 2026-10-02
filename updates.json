@@ -4,9 +4,27 @@
   "note": "Bullet text may contain restricted HTML (<strong>, <em>, <code>, <a>). Author-controlled — sanitize at the edit step, not at render.",
   "entries": [
     {
-      "date": "2026-10-01",
+      "date": "2026-10-02",
       "tags": [
         "today",
+        "episode",
+        "content"
+      ],
+      "sections": [
+        {
+          "heading": "Episode 148 &mdash; Brodie&rsquo;s wording edits applied",
+          "bullets": [
+            "Brodie reviewed the page and confirmed the <strong>Upgraid</strong> spelling and his bio. He asked to drop the &ldquo;fighting over the pie&rdquo; framing, and all three of his edits are live on the review page.",
+            "Overview now says the industry &ldquo;has an opportunity to both grow the pie and improve its economics along the way.&rdquo; Timeline now says the largest ESCOs have used Upgraid for a while &ldquo;and others are just starting.&rdquo; The Market tab headline is now <em>&ldquo;Get ready for growth.&rdquo;</em>",
+            "The podcast feed subtitle and episode notes got the same softer framing (&ldquo;poised for growth&rdquo;), so Apple and Spotify match the page. Brodie&rsquo;s own on-air quotes are unchanged.",
+            "Reply sent to Jim. Next step: Jim&rsquo;s release date, then the post moves from Podcast Review to Podcast Episodes."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "tags": [
         "episode",
         "content",
         "automation"
@@ -26,7 +44,6 @@
     {
       "date": "2026-09-16",
       "tags": [
-        "today",
         "episode",
         "launch"
       ],
@@ -44,7 +61,6 @@
     {
       "date": "2026-09-15",
       "tags": [
-        "today",
         "episode",
         "content",
         "automation"
@@ -71,7 +87,6 @@
     {
       "date": "2026-07-09",
       "tags": [
-        "today",
         "episode",
         "content",
         "fix",
